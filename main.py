@@ -322,11 +322,11 @@ def send_multiple_requests_sync(uid, server_name, url):
             return None
         
         success_count = 0
-        for i in range(100):
+        for i in range(10):
             token = tokens[i % len(tokens)]["token"]
             if send_request_sync(encrypted_uid, token, url):
                 success_count += 1
-            time.sleep(0.1)  # Small delay
+            time.sleep(0.05)  # Small delay
         
         return success_count
     except Exception as e:
